@@ -102,7 +102,14 @@ jobs:
       uses: pierotofy/set-swap-space@master
       with:
         swap-size-gb: 12
-
+        
+    - name: Clone Theme Orangefox
+      run: |
+        cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
+        rm rf bootable/recovery/gui/theme
+        git clone https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
+      working-directory: ${{ steps.pwd.outputs.workspace-folder }}
+      
     - name: Building recovery
       run: |
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
