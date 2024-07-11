@@ -108,6 +108,7 @@ jobs:
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
         rm rf bootable/recovery/gui/theme
         git clone https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
+        export TW_THEME=portrait_hdpi
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
       
     - name: Building recovery
