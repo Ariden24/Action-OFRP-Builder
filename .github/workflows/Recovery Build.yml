@@ -106,7 +106,7 @@ jobs:
     - name: Clone Theme Orangefox
       run: |
         cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}
-        rm -f bootable/recovery/gui/theme
+        rm -rf bootable/recovery/gui/theme
         git clone https://gitlab.com/OrangeFox/misc/theme.git bootable/recovery/gui/theme
         export TW_THEME=portrait_hdpi
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
